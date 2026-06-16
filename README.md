@@ -1,185 +1,85 @@
-# Organize App - iOS Midterm Project
-**Author:** Thanh Tung Le  
-**Course:** PROG39856 Advanced Mobile iOS App Development  
-**Date:** June 16, 2026
+# Organize App
 
-## Overview
-A comprehensive SwiftUI-based organize/planner application with 8+ screens featuring Calendar events, To-Do lists, and Finance tracking functionality.
+A SwiftUI-based organize and planner application for managing your calendar, tasks, and finances in one place.
 
 ## Features
 
-### 1. **Tab-Based Navigation**
-- Tab Bar Controller with 5 main sections:
-  - Home (Dashboard)
-  - Calendar
-  - To-Do List
-  - Finance
-  - Profile
+- **Home Dashboard** - Overview of your events, tasks, and financial balance
+- **Calendar** - Schedule and manage events with an interactive date picker
+- **To-Do List** - Track tasks with priority levels and completion status
+- **Finance Tracker** - Monitor income and expenses with transaction history
+- **Profile** - View statistics and manage app settings
 
-### 2. **Eight Main Screens**
+## Setup Instructions
 
-#### Screen 1: Home View (Dashboard)
-- Welcome header with current date
-- Quick statistics cards showing:
-  - Total events
-  - Pending tasks
-  - Current balance
-  - Completed tasks
-- Preview of upcoming events
-- Preview of today's tasks
-- Navigation links to detailed views
+### Requirements
+- Xcode 14.0 or later
+- iOS 15.0 or later
+- macOS 12.0 or later
 
-#### Screen 2: Calendar View
-- Interactive graphical date picker
-- Filter events by selected date
-- List of events for the selected date
-- Add new event button
-- Swipe-to-delete functionality
+### Installation
 
-#### Screen 3: Add Event View
-- Form to add new calendar events
-- Fields: Title, Date, Time, Category, Notes
-- Category picker with predefined options
-- Date and time pickers
-- Data passed back to Calendar view
+1. **Clone or download the project**
+   ```
+   Open the project folder in Finder
+   ```
 
-#### Screen 4: Event Detail View
-- Detailed event information display
-- Shows title, date, time, category, and notes
-- Clean card-based layout
-- System icons for visual clarity
+2. **Open the project in Xcode**
+   - Double-click `Midterm_ThanhTungLe.xcodeproj`
+   - Wait for Xcode to load the project
 
-#### Screen 5: To-Do List View
-- List view showing all tasks
-- Separated sections for pending and completed tasks
-- Toggle to show/hide completed tasks
-- Priority indicators (High, Medium, Low)
-- Tap to toggle completion status
-- Swipe-to-delete functionality
+3. **Select a simulator**
+   - Click on the device selector in the toolbar
+   - Choose any iPhone simulator (iPhone 14, 15, or 16 recommended)
 
-#### Screen 6: Add Task View
-- Form to create new to-do items
-- Fields: Title, Description, Due Date, Priority
-- Segmented control for priority selection
-- Visual priority indicators
-- Data passed back to To-Do List
+4. **Build and run**
+   - Press `Cmd + R` or click the Run button
+   - Wait for the app to build and launch in the simulator
 
-#### Screen 7: Finance View
-- Horizontal scrolling summary cards showing:
-  - Total balance
-  - Total income
-  - Total expenses
-- List of all transactions
-- Income/expense type indicators
-- Swipe-to-delete functionality
+### First Launch
 
-#### Screen 8: Add Transaction View
-- Form to add financial transactions
-- Fields: Title, Amount, Category, Type, Date, Notes
-- Segmented control for Income/Expense selection
-- Category picker
-- Real-time amount preview
-- Decimal keyboard for amount entry
-- Data passed back to Finance view
+The app includes sample data to help you explore its features:
+- 2 calendar events
+- 3 to-do items
+- 3 financial transactions
 
-#### Screen 9: Profile View (Bonus)
-- User profile information
-- Statistics summary
-- Settings toggles (Notifications, Dark Mode)
-- App information and version
-- Navigation to additional settings
+## How to Use
 
-## Technical Implementation
+### Adding Events
+1. Tap the **Calendar** tab
+2. Tap the **+** button
+3. Fill in event details (title, date, time, category)
+4. Tap **Save**
 
-### Data Models
-- **Event**: Stores calendar event information
-- **TodoItem**: Stores task information with priority levels
-- **Transaction**: Stores financial transaction data with income/expense types
+### Adding Tasks
+1. Tap the **To-Do** tab
+2. Tap the **+** button
+3. Enter task details and select priority
+4. Tap **Save**
 
-### View Models
-- **AppViewModel**: 
-  - Central data management using `@Published` properties
-  - Observable object pattern for state management
-  - CRUD operations for all data types
-  - Sample data initialization
+### Adding Transactions
+1. Tap the **Finance** tab
+2. Tap the **+** button
+3. Choose income or expense type
+4. Enter amount and details
+5. Tap **Save**
 
-### Data Flow
-- Uses SwiftUI's `@EnvironmentObject` for sharing data across views
-- Child views receive data through environment
-- Modal sheets for add/edit operations
-- Data persistence through shared view model
+## Technology Stack
 
-### UI Components
-- **Lists**: Native SwiftUI List views with ForEach
-- **Forms**: Form-based input screens
-- **Pickers**: DatePicker, Picker, and segmented controls
-- **Cards**: Custom card components with shadows and corner radius
-- **Navigation**: NavigationView and NavigationLink
-- **Sheets**: Modal presentation for add screens
-
-### Constraints & Layout
-- SwiftUI's automatic layout system with:
-  - VStack and HStack for vertical/horizontal stacking
-  - Spacer() for flexible spacing
-  - .frame() modifiers for sizing
-  - .padding() for consistent spacing
-  - Responsive to different iPhone screen sizes
-
-### Design Features
-- Clean, modern interface
-- Consistent color scheme (Blue accent color)
-- SF Symbols for icons
-- Shadow effects for depth
-- Corner radius for modern look
-- Color-coded elements (priority, transaction type)
-- Proper spacing and alignment
+- **SwiftUI** - Modern declarative UI framework
+- **Combine** - Reactive data flow
+- **MVVM Architecture** - Clean separation of concerns
 
 ## Project Structure
+
 ```
 Midterm_ThanhTungLe/
-├── Midterm_ThanhTungLeApp.swift (App entry point)
-├── ContentView.swift (Tab bar controller)
-├── Models/
-│   ├── Event.swift
-│   ├── TodoItem.swift
-│   └── Transaction.swift
-├── ViewModels/
-│   └── AppViewModel.swift
-├── Views/
-│   ├── HomeView.swift
-│   ├── CalendarView.swift
-│   ├── AddEventView.swift
-│   ├── EventDetailView.swift
-│   ├── TodoListView.swift
-│   ├── AddTodoView.swift
-│   ├── FinanceView.swift
-│   ├── AddTransactionView.swift
-│   └── ProfileView.swift
-└── Assets.xcassets/
+├── Models/          # Data models
+├── ViewModels/      # Business logic
+├── Views/           # UI screens
+└── Assets/          # Images and colors
 ```
 
-## Requirements Met
+## Support
 
-✅ **8+ Screens**: 9 screens implemented  
-✅ **SwiftUI**: Entire app built with SwiftUI  
-✅ **Data Passing**: Data flows between views via EnvironmentObject  
-✅ **List Views**: Used for Calendar events, To-Do items, and Transactions  
-✅ **Tab Bar**: Tab-based navigation with 5 tabs  
-✅ **Actual UI Elements**: No images used, all native UI components  
-✅ **Constraints**: SwiftUI layout system ensures consistency across devices  
-✅ **Add Functionality**: Forms to add events, tasks, and transactions  
-
-## How to Run
-1. Open `Midterm_ThanhTungLe.xcodeproj` in Xcode
-2. Select a simulator (iPhone 14, 15, or 16 recommended)
-3. Press Cmd+R to build and run
-4. The app includes sample data for demonstration
-
-## Sample Data
-The app initializes with sample data including:
-- 2 calendar events
-- 3 to-do items (2 pending, 1 completed)
-- 3 financial transactions (1 income, 2 expenses)
-
-## Testing
-The app has been designed to work across different iPhone models using SwiftUI's adaptive layout system.
+For issues or questions, please check the code comments or review the implementation details in the source files.
